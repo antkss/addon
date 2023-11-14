@@ -1,6 +1,7 @@
 if [ -z $DISPLAY ]; then 
    neofetch
 fi 
+export OPENAI_KEY=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
 autoload -U colors && colors
 export _JAVA_AWT_WM_NONREPARENTING=1
 export zshdir=/home/as/.zsh
@@ -11,13 +12,20 @@ if [[ -n $zshdir/.zcompdump(#qN.mh+24) ]]; then
 else
 	compinit -C;
 fi;
+alias learn="cd /home/as/pwnable/"
+## flyctl export PATH
+# export FLYCTL_INSTALL="/home/as/.fly"
+ # export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+## activate python virtual environment ##
+#source /home/as/.local/bin/activate
 ## Colorize the ls output ##
 alias ls='ls --color=auto'
 source $zshdir/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $zshdir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export HISTFILE="$zshdir/.zsh_history"
-HISTSIZE=999999999999999999
-SAVEHIST=999999999999999999
+HISTSIZE=10000000
+SAVEHIST=10000000
 setopt appendhistory
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
@@ -51,3 +59,7 @@ add-zsh-hook precmd randomise_prompt_colour
 #PROMPT="%{$fg_bold[yellow]%}%~%$ "
 #export XDG_CURRENT_DESKTOP=sway
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH=$PATH:/usr/local/bin
+
+# Created by `pipx` on 2023-10-29 12:30:31
+export PATH="$PATH:/home/as/.local/bin"
