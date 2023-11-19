@@ -60,6 +60,6 @@ add-zsh-hook precmd randomise_prompt_colour
 #export XDG_CURRENT_DESKTOP=sway
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH=$PATH:/usr/local/bin
-
+alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # Created by `pipx` on 2023-10-29 12:30:31
 export PATH="$PATH:/home/as/.local/bin"
