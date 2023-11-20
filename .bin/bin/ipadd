@@ -1,0 +1,2 @@
+#!/bin/bash
+ip address add 192.168.1.2/22 dev wlo1

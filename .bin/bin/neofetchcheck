@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+if [ -z $DISPLAY ]; then 
+neofetch
+fi 
+

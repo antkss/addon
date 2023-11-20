@@ -1,0 +1,3 @@
+#!/bin/bash
+export _JAVA_AWT_WM_NONREPARENTING=1
+"/usr/local/java/jdk19/bin/java" "--add-opens=java.desktop/javax.swing=ALL-UNNAMED" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED" "-javaagent:/home/as/cac/burpsuite/BurpLoaderKeygen_v1.17.jar" "-jar" "/home/as/cac/burpsuite/burpsuite_pro_v2023.10.2.jar"
