@@ -1,11 +1,11 @@
 if [ -z $DISPLAY ]; then 
    neofetch
 fi 
-export OPENAI_KEY=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
+export OPENAI_KEY=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
 autoload -U colors && colors
 export _JAVA_AWT_WM_NONREPARENTING=1
-export zshdir=/home/as/.zsh
-export PATH=$PATH:/home/as/.bin/bin:/usr/local/java/jdk19/bin
+export zshdir=~/.zsh
+export PATH=$PATH:~/.bin/bin
 autoload -Uz compinit 
 if [[ -n $zshdir/.zcompdump(#qN.mh+24) ]]; then
 	compinit;
@@ -54,12 +54,11 @@ randomise_prompt_colour () {
 
 
 }
-QT_QPA_PLATFORM=wayland
 add-zsh-hook precmd randomise_prompt_colour
 #PROMPT="%{$fg_bold[yellow]%}%~%$ "
 #export XDG_CURRENT_DESKTOP=sway
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH=$PATH:/usr/local/bin
-alias clear="printf '\033[2J\033[3J\033[1;1H'"
+#alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # Created by `pipx` on 2023-10-29 12:30:31
-export PATH="$PATH:/home/as/.local/bin"
+export PATH="$PATH:~/.local/bin"
