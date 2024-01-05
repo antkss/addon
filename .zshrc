@@ -2,6 +2,10 @@ if [ -z $DISPLAY ]; then
    neofetch
 fi 
 export OPENAI_KEY=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
+export OPENAI_API_KEY=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
+
+
+# source ~/.zsh/zsh-vi-mode/zsh-vi-mode.zsh
 autoload -U colors && colors
 export _JAVA_AWT_WM_NONREPARENTING=1
 export zshdir=~/.zsh
@@ -16,7 +20,7 @@ alias learn="cd /home/as/pwnable/"
 ## flyctl export PATH
 # export FLYCTL_INSTALL="/home/as/.fly"
  # export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
+alias kcsc="cd /home/as/kcsc"
 ## activate python virtual environment ##
 #source /home/as/.local/bin/activate
 ## Colorize the ls output ##
@@ -54,6 +58,8 @@ randomise_prompt_colour () {
 
 
 }
+XDG_SESSION_TYPE=wayland
+QT_QPA_PLATFORM=wayland
 add-zsh-hook precmd randomise_prompt_colour
 #PROMPT="%{$fg_bold[yellow]%}%~%$ "
 #export XDG_CURRENT_DESKTOP=sway
@@ -62,3 +68,37 @@ export PATH=$PATH:/usr/local/bin
 #alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # Created by `pipx` on 2023-10-29 12:30:31
 export PATH="$PATH:~/.local/bin"
+#vim mode configuration
+#
+bindkey -v
+export KEYTIMEOUT=1
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+#the end of vim mode configuration
