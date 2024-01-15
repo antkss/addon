@@ -1,14 +1,14 @@
 [context]
-clear_screen = True
+clear_screen = False
 enable = True
 grow_stack_down = False
 ignore_registers = 
 layout = legend regs stack code args source memory threads trace extra
 libc_args = False
 libc_args_path = 
-nb_lines_backtrace = 10
+nb_lines_backtrace = 5
 nb_lines_backtrace_before = 2
-nb_lines_code = 6
+nb_lines_code = 5
 nb_lines_code_prev = 3
 nb_lines_stack = 8
 nb_lines_threads = -1
@@ -16,7 +16,7 @@ peek_calls = True
 peek_ret = True
 redirect = 
 show_opcodes_size = 0
-show_registers_raw = True
+show_registers_raw = false
 show_source_code_variable_values = True
 show_stack_raw = True
 
@@ -40,7 +40,7 @@ show_deprecation_warnings = False
 tempdir = /tmp/gef
 
 [got]
-function_not_resolved = yellow
+function_not_resolved = blue
 function_resolved = green
 
 [heap-analysis-helper]
@@ -82,7 +82,7 @@ nr_pages_chunk = 1024
 [theme]
 address_code = bold red
 address_heap = bold  purple
-address_stack = bold  pink
+address_stack = bold yellow
 context_title_line = gray
 context_title_message = bold cyan
 default_title_line =  gray
@@ -130,4 +130,7 @@ xref = search-pattern
 sc-get = shellcode get
 sc-search = shellcode search
 screen-setup = tmux-setup
-
+m = start
+ls = !ls
+cls = !clear
+nvim = !nvim

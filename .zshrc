@@ -1,9 +1,6 @@
 if [ -z $DISPLAY ]; then 
    neofetch
 fi 
-export OPENAI_KEY=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
-export OPENAI_API_KEY=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
-
 
 # source ~/.zsh/zsh-vi-mode/zsh-vi-mode.zsh
 autoload -U colors && colors
