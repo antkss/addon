@@ -1,719 +1,587 @@
 
-.disasm-font { Terminus}
+@def base_highlight_color rgba(255, 255, 0, 0.80);
 
-.hexview-font {Terminus}
-
-.text-input-font {Terminus}
-
-QWidget:focus {
-  outline: none;
-}
-
-QWidget {
-  background-color: #efefef;
-  color           : #222222;
-  font-family     : 'Terminus';
-}
-
-IDAView {
-  border: none;
-}
-
-hexview_t {
-  border: none;
-}
-
-QToolBar {
-  background-color: #efefef;
-  border          : none;
-  spacing         : 5px;
-  border          : 1px solid #eeeeee;
-  font-family    : 'Terminus';
-}
-
-QToolBar:active {
-  background-color: #dfdfdf;
-}
-
-QToolBar QWidget {
-  background: transparent;
-  border    : 1px solid #eeeeee;
-}
-
-QToolBar:handle {
-  image        : url("$RELPATH/icons/drag.png");
-  padding-right: 10px;
-  padding-left : 0;
-  width        : 10px;
-}
-
-QStatusBar {
-  background : #efefef;
-  font-family: 'Terminus';
-}
-
-QStatusBar:item {
-  border     : none;
-  font-family: '';
-}
-
-IDAMainWindow>QStatusBar {
-  min-height    : 0;
-  height        : 1em;
-  padding-bottom: 6px;
-  padding-right : 7px;
-  background    : #0078d6;
-  color         : #ffffff;
-  border-left   : 1px solid #dfdfdf;
-  border-right  : 1px solid #dfdfdf;
-  border-top    : 1px solid #dfdfdf;
-}
-
-IDAMainWindow>QStatusBar:item {
-  border: none;
-}
-
-IDAMainWindow>QStatusBar QWidget {
-  color         : #ffffff;
-  padding-left  : 3px;
-  padding-right : 12px;
-  padding-bottom: 5px;
-}
-
-QPushButton {
-  text-align: center;
-  min-height: 1em;
-  max-height: 1em;
-  min-width : 50px;
-  border    : none;
-  background: #0078d6;
-  padding   : 2px 10px;
-  color     : #FFFFFF;
-}
-
-QPushButton:hover {
-  background: #0e639c;
-  border    : none;
-}
-
-QPushButton:default {
-  border: none;
-}
-
-QPushButton:pressed {
-  border: none;
-}
-
-QTreeView {
-  border: 1px solid #272727;
-}
-
-QTreeView:item {
-
-  height: 1.2em;
-  color : #222222;
-}
-
-QTreeView:item:selected {
-  background-color: #0078d6;
-}
-
-QTreeView QHeaderView:section {
-  border          : 0px solid black;
-  background-color: #dfdfdf;
-  height          : 1.2em;
-  padding-left    : 5px;
-}
-
-QLineEdit {
-  border    : 1px solid #0078d6;
-  background: #efefef;
-  color     : #222222;
-  padding   : 0px;
-  height    : 1.1em;
-  max-height: 1.1em;
-  min-height: 1.1em;
-}
-
-QLineEdit:focus {
-  border: 1px solid #0078d6;
-}
-
-QTabWidget::pane {
-  border          : 2px solid #cdcdcd;
-  background-color: #dcdcdc;
-}
-
-QTabWidget::tab-bar {
-  border    : 0;
-  border-top: 1px solid #afafaf;
-}
-
-QTabBar {
-  background-color: #ffffff;
-  border          : 0px solid black;
-  border-bottom   : 2px solid #ffffff;
-}
-
-QTabBar:tab {
-  border-right    : 1px solid #adadad;
-  border-bottom   : 1px solid transparent;
-  background-color: #ffffff;
-  height          : 2em;
-  max-height      : 2em;
-  min-height      : 2em;
-  padding         : 0 15px;
-  color           : #222222;
-}
-
-QTabBar:tab:selected {
-  background-color: #0078d6;
-  color: #ffffff;
-}
-
-QTabBar:close-button {
-  image       : url("$RELPATH/icons/close.png");
-  icon-size   : 0.9em;
-  padding     : 0px;
-  margin-right: 4px;
-}
-
-QTabBar:close-button:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-QTabBar:close-button:pressed {
-  icon-size: 1em;
-  padding  : 1px -1px -1px 1px;
-}
-
-QMenuBar {
-  background-color: #efefef;
-  padding-left    : 2px;
-  border-bottom   : 0px solid black;
-}
-
-QMenuBar:active {
-  background-color: #efefef;
-}
-
-QMenuBar:item {
-  background: transparent;
-  color     : #222222;
-}
-
-QMenuBar:item:selected {
-  background-color: #cdcdcd;
-}
-
-QTableView {
-  border          : 1px solid #eeeeee;
-  background-color: white;
-}
-
-QTableView:item {
-  color: #222222;
-}
-
-QTableView:item:selected {
-  border          : none !important;
-  background-color: #0078d6;
-  color           : white;
-}
-
-QTableView:section:item {
-  background: #dfdfdf !important;
-}
-
-QTableView QHeaderView:section {
-  background-color: #dfdfdf;
-  border          : none;
-}
-
-QTableView QHeaderView:section:horizontal {
-  padding    : 2px;
-  border-left: 1px solid #2D3234;
-}
-
-QTableView QHeaderView:section:vertical {
-  padding   : 0;
-  background: transparent;
-}
-
-QTableView QTableCornerButton:section {
-  background: #dfdfdf;
-  border    : 0px outset #000;
-}
-
-QListView {
-  border: 1px solid #1B1F20;
-}
-
-QListView:item {}
-
-QListView:item:selected {
-  background-color: #0078d6;
-  color           : white;
-}
-
-QCheckBox {
-  background-color: #D4D4D4;
-}
-
-QCheckBox,
-QLabel,
-QRadioButton {
-  background: transparent;
-}
-
-QMenu {
-  background-color: #efefef;
-  border          : 1px solid rgba(20, 20, 20, 30);
-  padding-bottom  : 8px;
-}
-
-QMenu:item {
-  padding: 6px 40px 3px 40px;
-}
-
-QMenu:item:selected {
-  background-color: #0078d6;
-  color           : white;
-}
-
-QMenu:right-arrow {
-  image : url("$RELPATH/icons/menu.png");
-  margin: 5px 15px 5px 5px;
-}
-
-QMenu:icon {
-  padding-left: 20px;
-}
-
-QMenu:separator {
-  height    : 1px;
-  background: #909090;
-  width     : 1px;
-  margin    : 6px;
-}
-
-QComboBox {
-  background: #dfdfdf;
-  border    : 1px solid #afafaf;
-  padding   : 6px;
-}
-
-QComboBox:focus,
-QComboBox:on {}
-
-QComboBox:editable {
-  border: 1px solid transparent;
-}
-
-QComboBox QLineEdit {
-  background : transparent;
-  padding    : 0;
-  border     : 0;
-  margin-left: 0px;
-  margin-top : -4px;
-}
-
-QComboBox:drop-down {
-  subcontrol-origin  : padding;
-  subcontrol-position: top right;
-  border             : none;
-  width              : 20px;
+DockWidgetTitle
+{
+    padding: 0px;
+    margin-bottom: 2px;
 }
 
-QComboBox:drop-down:editable {
-  subcontrol-origin  : padding;
-  subcontrol-position: top right;
-  border             : none;
-  width              : 20px;
+DockAreaDragTitle
+{
+    background-color: palette(dark);
 }
 
-QComboBox:down-arrow {
-  image : url("$RELPATH/icons/expand.png");
-  margin: 0;
+DockWidgetTitle[active="true"]
+{
+    background-color: palette(base);
 }
 
-QComboBox>QLineEdit {
-  min-height: default;
+DockWidgetTitle > QPushButton,
+DockAreaDragTitle > QPushButton
+{
+    min-width: 20px;
+    min-height: 20px;
 }
 
-QComboBox>QLineEdit:hover {
-  min-height: default;
-  border    : 0px solid black;
+DockWidgetTitle > QPushButton:!hover,
+DockAreaDragTitle > QPushButton:!hover
+{
+    border: none;
 }
 
-QComboBox>QLineEdit:focus {
-  min-height: default;
-  border    : 0px solid black;
-}
-
-QComboBox QAbstractItemView {
-  background                : #efefef;
-  outline                   : none;
-  selection-background-color: #0078d6;
-  selection-color           : white;
-  border                    : 1px solid #dfdfdf;
-}
-
-QComboBox:focus {
-  border: 1px solid #0078d6;
-}
-
-QComboBox QLineEdit:focus {
-  border-right: none;
-}
-
-QTextEdit {
-  background-color: #2D3234;
-  border          : 2px solid #2D2D2D;
-}
-
-TNavBand>QPushButton,
-nav_scroll_button_t {
-  border       : none;
-  background   : transparent;
-  min-height   : default;
-  min-width    : default;
-  padding      : default;
-  border-radius: default;
-}
-
-RegJumpButton {
-  min-height: 0;
-  min-width : 0;
-  border    : none;
-  padding   : 0;
-}
-
-QDockWidget,
-BaseDockWidget,
-DockWidget {
-  padding: 0;
-}
-
-DockWidgetTitle {
-  background: #cfcfcf;
-  height    : 1.2em;
-  max-height: 1.2em;
-  min-height: 1.2em;
-  padding   : 0px;
-  border    : 0;
-  margin    : 0;
-  color     : #000000;
-}
-
-DockAreaDragTitle {
-  border: 0;
-}
-
-DockWidgetTitle[active="true"] {
-  background: #0078d6;
-}
-
-DockWidgetTitle QPushButton {
-  min-height      : 0.9em;
-  height          : 0.9em;
-  min-width       : 1.1em;
-  padding         : 0;
-  background-color: transparent;
-}
-
-DockWidgetTitle QPushButton[toolTip="Fullscreen"] {
-  image         : url("$RELPATH/icons/fullscreen.png");
-  color         : #000000;
-  qproperty-icon: url("$RELPATH/icons/blank.png");
-}
+chooser_widget_t,
+standalone_dirtree_widget_t
+{
+    qproperty-highlight-bg-default: ${base_highlight_color};
+    qproperty-highlight-bg-selected: rgba(0, 192, 192, 0.80);
 
-DockWidgetTitle QPushButton[toolTip="Float"] {
-  image         : url("$RELPATH/icons/float.png");
-  color         : #000000;
-  qproperty-icon: url("$RELPATH/icons/blank.png");
+    qproperty-cut-text-color-default : silver;
+    qproperty-cut-text-color-selected : grey;
 }
 
-DockWidgetTitle QPushButton[toolTip="Close"] {
-  image         : url("$RELPATH/icons/close.png");
-  color         : #000000;
-  qproperty-icon: url("$RELPATH/icons/blank.png");
-}
+chooser_widget_t[os-dark-theme="true"],
+standalone_dirtree_widget_t[os-dark-theme="true"]
+{
+    qproperty-highlight-bg-default: red;
+    qproperty-highlight-bg-selected: pink;
 
-EditContainer {
-  border: 1px solid #afafaf;
+    qproperty-cut-text-color-default : darkgrey;
+    qproperty-cut-text-color-selected : grey;
 }
 
-QScrollBar {
-  background-color: #efefef;
-  border          : 0px solid #efefef;
-  margin          : 0;
-  padding         : 0;
+log_widget_t
+{
+    color            : black;
+    background-color : white;
 }
 
-QScrollBar:horizontal {
-  height: 12px;
+log_widget_t[os-dark-theme="true"]
+{
+    color: #ddd;
+    background-color: #2d2d2d;
 }
 
-QScrollBar:vertical {
-  width: 12px;
-}
+text_area_t
+{
+    qproperty-keyword1-fg: blue;
+    qproperty-keyword1-weight: 0;
+    qproperty-keyword1-italic: 0;
 
-QScrollBar:sub-line {
-  width : 0;
-  height: 0;
-}
+    qproperty-keyword2-fg: purple;
+    qproperty-keyword2-weight: 0;
+    qproperty-keyword2-italic: 0;
 
-QScrollBar:add-line {
-  width : 0;
-  height: 0;
-}
+    qproperty-keyword3-fg: red;
+    qproperty-keyword3-weight: 0;
+    qproperty-keyword3-italic: 0;
 
-QScrollBar:add-page {
-  background: none;
-  width     : 0;
-  height    : 0;
-}
+    qproperty-string-fg: darkred;
+    qproperty-string-weight: 0;
+    qproperty-string-italic: 0;
 
-QScrollBar:sub-page {
-  background: none;
-  width     : 0;
-  height    : 0;
-}
+    qproperty-comment-fg: darkgreen;
+    qproperty-comment-weight: 0;
+    qproperty-comment-italic: 1;
 
-QScrollBar:handle {
-  background-color: rgba(12, 12, 12, 0.1);
-}
+    qproperty-preprocessor-fg: blue;
+    qproperty-preprocessor-weight: 1;
+    qproperty-preprocessor-italic: 0;
 
-QScrollBar:handle:vertical {
-  min-height: 20px;
+    qproperty-number-fg: darkcyan;
+    qproperty-number-weight: 1;
+    qproperty-number-italic: 0;
 }
 
-QScrollBar:handle:horizontal {
-  min-width: 20px;
+text_area_t text_area_margin_widget_t
+{
+    color: grey;
+    qproperty-header-color: dimgrey;
 }
 
-QScrollBar:handle:hover {
-  background-color: rgba(10, 10, 10, 0.2);
+text_area_dialog_t QLabel#counter_label
+{
+    color: grey;
 }
 
-ChooserContainer {
-  border: 1px solid #afafaf;
+text_area_dialog_t QLabel#counter_label[invalid=true]
+{
+    color: red;
 }
 
-QGroupBox {
-  border    : 1px solid #afafaf;
-  margin-top: 5px;
-}
+@def darkening 125;
+@def lightening 125;
 
-QGroupBox:title {
-  subcontrol-origin  : margin;
-  subcontrol-position: top center;
-}
+@def diff_region_pick   #8AD1A9; /* light green */
+@def diff_region_pick_l @lighten(${diff_region_pick}, ${lightening});
+@def diff_region_pick_d @darken(${diff_region_pick}, ${darkening});
 
-TextArrows {
-  border-bottom: 1px solid #414141;
-}
+@def diff_region_leave   silver;
+@def diff_region_leave_l @lighten(${diff_region_leave}, ${lightening});
+@def diff_region_leave_d @darken(${diff_region_leave}, ${darkening});
 
-/*IDADockWidget[objectName="Output window"] {
-  qproperty-windowIcon: url("$RELPATH/icons/blank.png");
-}
+@def diff_region_conflict   #FF7C4C; /* light orange/red */
+@def diff_region_conflict_l @lighten(${diff_region_conflict}, ${lightening});
+@def diff_region_conflict_d @darken(${diff_region_conflict}, ${darkening});
 
-IDADockWidget[objectName="Output window"] DockWidgetTitle {
-  background: #dfdfdf;
-  color     : #000000;
-  margin    : 0;
-  padding   : 4px;
+/* make that guy behave as if it were a regular widget, by killing the default QGroupBox spacing */
+LabeledWidgetContainer
+{
+    border: 0;
+    padding: 0;
 }
 
-IDADockWidget[objectName="Output window"] DockWidgetTitle QPushButton {
-  background: transparent;
+QSplitter::handle:horizontal
+{
+    width: 4px;
 }
 
-IDADockWidget[objectName="Output window"] QTextEdit:focus {
-  border: 1px solid #0078d6;
+QSplitter::handle:vertical
+{
+    height: 4px;
 }
-
-IDADockWidget[objectName="Output window"] QLineEdit {}
 
-IDADockWidget[objectName="Output window"] QGroupBox {
-  margin : 0;
-  padding: 0;
-  border : none;
+ActionsInspector QLineEdit
+{
+    width: 16em;
 }
 
-IDADockWidget[objectName="Output window"] QPushButton {}
-
-IDADockWidget[objectName="Output window"] QGroupBox QPushButton:hover {
-  border: none;
+ActionsInspector QKeySequenceEdit
+{
+    width: 16em;
 }
-
-IDADockWidget[objectName="Output window"] QGroupBox QPushButton:focus {
-  border: none;
-}*/
-
 
 CustomIDAMemo
 {
-    border: none;
-    qproperty-graph-bg-top: #EFEFEF;
-    qproperty-graph-bg-bottom: #EFEFEF;
-    qproperty-graph-node-shadow: #EFEFEF;
+    /* misc */
+    qproperty-line-fg-patched-bytes     : #804040;                   /* patched bytes (brown-ish) */
+    qproperty-line-fg-unsaved-changes   : #FF8000;                   /* unsaved changes (orange-ish) */
+    qproperty-line-bg-highlight         : ${base_highlight_color};   /* highlighting background */
+    qproperty-line-bg-highlight-2       : rgba(255, 192, 128, 0.80); /* highlighting background #2 */
+    qproperty-line-bg-highlight-3       : rgba(255, 128, 255, 0.80); /* highlighting background #3 */
+    qproperty-line-bg-highlight-4       : rgba(128, 255, 255, 0.80); /* highlighting background #4 */
+    qproperty-line-bg-highlight-5       : rgba(192, 128, 128, 0.80); /* highlighting background #5 */
+    qproperty-line-bg-highlight-6       : rgba(128, 192, 128, 0.80); /* highlighting background #6 */
+    qproperty-line-bg-highlight-7       : rgba(128, 128, 192, 0.80); /* highlighting background #7 */
+    qproperty-line-bg-highlight-8       : rgba(208, 208, 208, 0.80); /* highlighting background #8 */
+    qproperty-caret                     : black;                     /* Caret (cursor) */
+    qproperty-line-pfx-current-item     : rgba(0, 0, 0, 0);          /* Line prefix: Current item (transparent by default) */
+    qproperty-line-bgovl-current-line   : rgba(80, 80, 80, 0.15);    /* current line background overlay */
+    qproperty-line-bgovl-trace          : rgba(255, 255, 0, 0.20);   /* Trace line background overlay */
+    qproperty-line-bgovl-trace-ovl      : rgba(255, 188, 180, 0.40); /* Second trace line background overlay */
+    qproperty-line-bgovl-extra-1        : rgba(80, 255, 80, 0.25);   /* Extra background overlay #1 */
+    qproperty-line-bgovl-extra-2        : rgba(238, 255, 136, 0.25); /* Extra background overlay #2 */
+    qproperty-line-bgovl-extra-3        : rgba(255, 170, 0, 0.4);    /* Extra background overlay #3 */
+    qproperty-line-bgovl-extra-4        : rgba(255, 126, 232, 0.4);  /* Extra background overlay #4 */
+    qproperty-line-bgovl-extra-5        : rgba(219, 150, 69, 0.4);   /* Extra background overlay #5 */
+    qproperty-line-bgovl-extra-6        : rgba(69, 207, 219, 0.4);   /* Extra background overlay #6 */
+    qproperty-line-bgovl-extra-7        : rgba(143, 219, 69, 0.4);   /* Extra background overlay #7 */
+    qproperty-line-bgovl-extra-8        : rgba(86, 88, 126, 0.4);    /* Extra background overlay #8 */
+    qproperty-line-bgovl-extra-9        : rgba(217, 90, 111, 0.4);   /* Extra background overlay #9 */
+    qproperty-line-bgovl-extra-10       : rgba(128, 147, 132, 0.4);  /* Extra background overlay #10 */
+    qproperty-line-bgovl-extra-11       : rgba(255, 0, 120, 0.4);    /* Extra background overlay #11 */
+    qproperty-line-bgovl-extra-12       : rgba(255, 192, 0, 0.4);    /* Extra background overlay #12 */
+    qproperty-line-bgovl-extra-13       : rgba(255, 192, 255, 0.4);  /* Extra background overlay #13 */
+    qproperty-line-bgovl-extra-14       : rgba(133, 133, 133, 0.4);  /* Extra background overlay #14 */
+    qproperty-line-bgovl-extra-15       : rgba(203, 210, 166, 0.4);  /* Extra background overlay #15 */
+    qproperty-line-bgovl-extra-16       : rgba(0, 90, 0, 0.4);       /* Extra background overlay #16 */
 
-    qproperty-line-fg-default                     : blue;        /* Default                                       */
-    qproperty-line-fg-regular-comment             : blue;        /* Regular comment                               */
-    qproperty-line-fg-repeatable-comment          : gray;        /* Repeatable commen                             */
-    qproperty-line-fg-automatic-comment           : gray;        /* Automatic comment                             */
-    qproperty-line-fg-insn                        : navy;        /* Instruction                                   */
-    qproperty-line-fg-dummy-data-name             : navy;        /* Dummy Data Name                               */
-    qproperty-line-fg-regular-data-name           : blue;        /* Regular Data Name                             */
-    qproperty-line-fg-demangled-name              : blue;        /* Demangled Name                                */
-    qproperty-line-fg-punctuation                 : navy;        /* Punctuation                                   */
-    qproperty-line-fg-charlit-in-insn             : green;       /* Char constant                                 */
-    qproperty-line-fg-strlit-in-insn              : lime;        /* String constant                               */
-    qproperty-line-fg-numlit-in-insn              : green;       /* Numeric constant                              */
-    qproperty-line-fg-void-opnd                   : #FF8000;     /* Void operand                                  */
-    qproperty-line-fg-code-xref                   : green;       /* Code reference                                */
-    qproperty-line-fg-data-xref                   : #8080FF;     /* Data reference                                */
-    qproperty-line-fg-code-xref-to-tail           : red;         /* Code reference to tail byte                   */
-    qproperty-line-fg-data-xref-to-tail           : olive;       /* Data reference to tail byte                   */
-    qproperty-line-fg-error                       : #010101;     /* Error or problem                              */
-    qproperty-line-fg-line-prefix                 : silver;      /* Line prefix                                   */
-    qproperty-line-fg-opcode-byte                 : blue;        /* Opcode bytes                                  */
-    qproperty-line-fg-extra-line                  : blue;        /* Extra line                                    */
-    qproperty-line-fg-alt-opnd                    : blue;        /* Alternative operand                           */
-    qproperty-line-fg-hidden                      : gray;        /* Hidden name                                   */
-    qproperty-line-fg-libfunc                     : #8080FF;     /* Library function name                         */
-    qproperty-line-fg-locvar                      : green;       /* Local variable name                           */
-    qproperty-line-fg-dummy-code-name             : navy;        /* Dummy code name                               */
-    qproperty-line-fg-asm-directive               : blue;        /* Assembler directive                           */
-    qproperty-line-fg-macro                       : purple;      /* Macro                                         */
-    qproperty-line-fg-strlit-in-data              : green;       /* String constant in data directive             */
-    qproperty-line-fg-charlit-in-data             : green;       /* Char constant in data directive               */
-    qproperty-line-fg-numlit-in-data              : #008040;     /* Numeric constant in data directive            */
-    qproperty-line-fg-keyword                     : navy;        /* Keywords (offset, byte ptr, near)             */
-    qproperty-line-fg-register-name               : navy;        /* Register name                                 */
-    qproperty-line-fg-import-name                 : fuchsia;     /* Imported name                                 */
-    qproperty-line-fg-segment-name                : olive;       /* Segment name                                  */
-    qproperty-line-fg-dummy-unknown-name          : navy;        /* Dummy unknown name                            */
-    qproperty-line-fg-code-name                   : blue;        /* Regular Code Name                             */
-    qproperty-line-fg-unknown-name                : navy;        /* Regular Unknown Name                          */
-    qproperty-line-fg-collapsed-line              : blue;        /* Collapsed line                                */
-    qproperty-line-bg-default                     : white;       /* Default background                            */
-    qproperty-line-bg-selected                    : #C0BBAF;     /* Selected background                           */
-    qproperty-line-pfx-libfunc                    : cyan;        /* Line prefix: Library function                 */
-    qproperty-line-pfx-func                       : black;       /* Line prefix: Regular function                 */
-    qproperty-line-pfx-insn                       : maroon;      /* Line prefix: Single instruction               */
-    qproperty-line-pfx-data                       : gray;        /* Line prefix: Data bytes                       */
-    qproperty-line-pfx-unexplored                 : olive;       /* Line prefix: Unexplored byte                  */
-    qproperty-line-pfx-extern                     : fuchsia;     /* Line prefix: External name definition segment */
-    qproperty-line-pfx-current-line               : blue;        /* Line prefix: Current line                     */
-    qproperty-line-pfx-hidden-line                : black;       /* Line prefix: Hidden line                      */
-    qproperty-line-pfx-lumina                     : #32CD32;     /* Line prefix: Lumina                           */
-}
+    /* graph */
+    qproperty-graph-bg-top              : white;
+    qproperty-graph-bg-bottom           : #E0F8FF;
+    qproperty-graph-node-title-normal   : white;
+    qproperty-graph-node-title-selected : #B1F9F9;
+    qproperty-graph-node-title-current  : #A0CFCF;
+    qproperty-graph-node-frame-group    : yellow;
+    qproperty-graph-node-shadow         : black;
+    qproperty-graph-node-high1          : #CCFFFF;
+    qproperty-graph-node-high2          : #CCFFCC;
+    qproperty-graph-node-foreign        : red;
+    qproperty-graph-edge-normal         : blue;
+    qproperty-graph-edge-yes            : green;
+    qproperty-graph-edge-no             : red;
+    qproperty-graph-edge-high           : cyan;
+    qproperty-graph-edge-selected       : #AA5500;  /* brown-ish */
+    qproperty-graph-node-frame-selected : #AA5500;  /* brown-ish */
 
+    /* bpts */
+    qproperty-line-bg-bpt-enabled        : red;
+    qproperty-line-bg-bpt-disabled       : lime;
+    qproperty-line-bg-bpt-unavailable    : #FF8000;
 
-TCpuRegs {
-  background-color              : #4D4D4D;
-  qproperty-register-defined    : #858585;
-  qproperty-register-changed    : #569cd6;
-  qproperty-register-edited     : #800080;
-  qproperty-register-unavailable: #808080;
-}
+    /* diff/merge */
+    qproperty-line-bgovl-diff-region-pick:             ${diff_region_pick_l};
+    qproperty-line-bgovl-diff-region-leave:            ${diff_region_leave_l};
+    qproperty-line-bgovl-diff-region-conflict:         ${diff_region_conflict_l};
 
-TCpuRegs IDALabel {
-  color: #222;
-}
+    qproperty-line-bgovl-diff-region-pick-current:     ${diff_region_pick};
+    qproperty-line-bgovl-diff-region-leave-current:    ${diff_region_leave};
+    qproperty-line-bgovl-diff-region-conflict-current: ${diff_region_conflict};
 
-navband_t {
-  qproperty-code                : #b97a57;
-  qproperty-data                : #c0c0c0;
-  qproperty-error               : #ff5b5b;
-  qproperty-auto-analysis-cursor: #ffaa00;
-  qproperty-lumina-function     : #32cd32;
-  qproperty-lib-function        : #D5D5D5;
-  qproperty-function            : #797979;
-  qproperty-undefined           : #A4A4A4;
-  qproperty-extern              : #A0ADC5;
-  qproperty-gap                 : #E9E9E9;
-  qproperty-cursor              : #0055FF;
-}
-
-MainMsgList {
-  color           : #333333;
-  background-color: #ffffff;
-}
-
-TextArrows {
-  qproperty-jump-in-function         : #c0c0c0;
-  qproperty-jump-external-to-function: #ff0000;
-  qproperty-jump-under-cursor        : #42cf1f;
-  qproperty-jump-target              : #008000;
-  qproperty-register-target          : #0078d6;
-}
-
-TextEdit {
-  qproperty-keyword1-fg    : #0000ff;
-  qproperty-keyword2-fg    : #800080;
-  qproperty-keyword3-fg    : #ff0000;
-  qproperty-string-fg      : #8b0000;
-  qproperty-comment-fg     : #006400;
-  qproperty-preprocessor-fg: #0078d6;
-  qproperty-number-fg      : #008b8b;
-}
-
-CustomIDAMemo[debugging="true"] {
-  qproperty-line-bg-default: #c4c4c4;
-}
-
-CustomIDAMemo[hints="true"] {
-  qproperty-line-bg-default: #dedede;
-}
-
-navigator_t {
-  height: 0.5em;
-}
-
-QSplitter::handle {
-  image           : url(images/splitter.png);
-  background-color: white;
-}
-
-QSplitter::handle:horizontal {
-  width: 1px;
-}
-
-QSplitter::handle:vertical {
-  height: 1px;
-}
-
-QFrame,
-QToolTip,
-QLabel {
-  border: 0;
-}
-
-TextEdit text_edit_margin_widget_t {
-  color                 : #666666;
-  qproperty-header-color: gainsboro;
-}
-
-TChooser {
-  qproperty-highlight-bg-default : red;
-  qproperty-highlight-bg-selected: pink;
+    /* bookmarks */
+    qproperty-line-bgovl-bookmark:      rgba(0, 255, 128, 0.125);
+    qproperty-bookmark-star-outline:    rgba(0, 255, 128, 0.45);
 }
 
 CustomIDAMemo[debugging="true"]
 {
-    qproperty-graph-bg-top: #EFEFEF;
-    qproperty-graph-bg-bottom: white;
-    qproperty-graph-node-shadow: #EFEFEF;
+    qproperty-line-bg-default            : #CCFFFF;
+    qproperty-line-bgovl-current-ip      : rgba(0, 195, 255, .45);
 }
 
 CustomIDAMemo[hints="true"]
 {
-    qproperty-graph-bg-top: #EFEFEF;
-    qproperty-graph-bg-bottom: white;
-    qproperty-graph-node-shadow: #EFEFEF;
+    qproperty-line-bg-default            : #FFFFE1;         /* hints background (pale yellow) */
 }
 
+GraphMiniView
+{
+    qproperty-fog        : rgba(0, 0, 0, 0.35);
+    qproperty-crosshairs : rgba(255, 255, 0, 1);
+}
+
+TextArrows
+{
+    qproperty-jump-in-function          : silver;
+    qproperty-jump-external-to-function : red;
+    qproperty-jump-under-cursor         : black;
+    qproperty-jump-target               : green;
+    qproperty-register-target           : #4040FF;
+    qproperty-bpt-possible              : #60D0FF;
+}
+
+TCpuRegs
+{
+    background-color: #CCFFFF;
+    qproperty-register-defined: black;
+    qproperty-register-changed: blue;
+    qproperty-register-edited: purple;
+    qproperty-register-unavailable: gray;
+}
+
+TCpuRegs QPushButton
+{
+    background: transparent;
+}
+
+TCpuRegs ui_label_t
+{
+    color: blue;
+}
+
+TCpuRegs[os-dark-theme="true"]
+{
+    background-color: #4D4D4D;
+    qproperty-register-defined: white;
+    qproperty-register-changed: #FFFF7F;
+    qproperty-register-edited: #FF7F17;
+    qproperty-register-unavailable: #808080;
+}
+
+TCpuRegs ui_label_t[os-dark-theme="true"]
+{
+    color: #AAAAAA;
+}
+
+navband_t
+{
+    qproperty-lib-function : #AAFFFF;
+    qproperty-function : #00A2E8;
+    qproperty-code : #B97A57;
+    qproperty-data : silver;
+    qproperty-undefined : #B6B66B;
+    qproperty-extern : #FFA6FF;
+    qproperty-lumina-function : #32CD32;
+
+    qproperty-hl-lib-function : #C3FFFF;
+    qproperty-hl-function : #3CC4FF;
+    qproperty-hl-code : #CDA189;
+    qproperty-hl-data : #D2D2D2;
+    qproperty-hl-undefined : #CBCB97;
+    qproperty-hl-extern : #FFC0FF;
+    qproperty-hl-lumina-function : #6FDB6F;
+
+    qproperty-hl-outline : #FF0080;
+
+    qproperty-error : #FF5B5B;
+    qproperty-gap : black;
+    qproperty-cursor : #FFFF7F;
+    qproperty-auto-analysis-cursor : #FFAA00;
+}
+
+navband_t[os-dark-theme="true"]
+{
+    qproperty-lib-function: #00aaff;
+    qproperty-function: #ffaa00;
+    qproperty-code: #800000;
+    qproperty-data: #ebebb9;
+    qproperty-undefined: #787800;
+    qproperty-extern: #ff00ff;
+    qproperty-lumina-function: #32cd32;
+
+    qproperty-hl-lib-function: #4cc3fe;
+    qproperty-hl-function: #fec34c;
+    qproperty-hl-code: #f20000;
+    qproperty-hl-data: #f1f1ce;
+    qproperty-hl-undefined: #ecec00;
+    qproperty-hl-extern: #fe4cfe;
+    qproperty-hl-lumina-function: #6fdb6f;
+
+    qproperty-hl-outline : cyan;
+
+    qproperty-error: #ca0000;
+    qproperty-gap: #4a4a4a;
+    qproperty-cursor: #80ff00;
+    qproperty-auto-analysis-cursor: #ff8000;
+}
+
+TChooser,
+generic_dirtree_widget_t
+{
+    qproperty-highlight-bg-diff-region-pick:             ${diff_region_pick_l};
+    qproperty-highlight-bg-diff-region-leave:            ${diff_region_leave_l};
+    qproperty-highlight-bg-diff-region-conflict:         ${diff_region_conflict_l};
+
+    qproperty-highlight-bg-diff-region-pick-current:     ${diff_region_pick};
+    qproperty-highlight-bg-diff-region-leave-current:    ${diff_region_leave};
+    qproperty-highlight-bg-diff-region-conflict-current: ${diff_region_conflict};
+}
+
+diff_fringe_t
+{
+    background-color: white;
+
+    qproperty-diff-region-pick:                             ${diff_region_pick_l};
+    qproperty-diff-region-pick-boundaries:                  ${diff_region_pick_l};
+    qproperty-diff-region-pick-current:                     ${diff_region_pick};
+    qproperty-diff-region-pick-current-boundaries:          ${diff_region_pick_d};
+
+    qproperty-diff-region-leave:                            ${diff_region_leave_l};
+    qproperty-diff-region-leave-boundaries:                 ${diff_region_leave_l};
+    qproperty-diff-region-leave-current:                    ${diff_region_leave};
+    qproperty-diff-region-leave-current-boundaries:         ${diff_region_leave_d};
+
+    qproperty-diff-region-conflict:                         ${diff_region_conflict_l};
+    qproperty-diff-region-conflict-boundaries:              ${diff_region_conflict_l};
+    qproperty-diff-region-conflict-current:                 ${diff_region_conflict};
+    qproperty-diff-region-conflict-current-boundaries:      ${diff_region_conflict_d};
+}
+
+IDAMainWindow
+{
+    /*
+      Note: `:/`-starting paths are resources built-in the IDA binary.
+
+      Themes can either rely on those, or specify paths to their own
+      images, by doing using a `$RELPATH` directive. E.g.,
+
+      qproperty-themeicon-AddConst: url("$RELPATH/icons/actions/my_icon.svg");
+   */
+    qproperty-themeicon-AddConst:                                   url(":/IDAG/resources/menu/AddConst.svg");
+    qproperty-themeicon-AddEnum:                                    url(":/IDAG/resources/menu/AddEnum.svg");
+    qproperty-themeicon-AddStruct:                                  url(":/IDAG/resources/menu/AddStruct.svg");
+    qproperty-themeicon-AddWatch:                                   url(":/IDAG/resources/menu/AddWatch.svg");
+    qproperty-themeicon-Analysis:                                   url(":/IDAG/resources/menu/Analysis.svg");
+    qproperty-themeicon-AskBinaryText:                              url(":/IDAG/resources/menu/AskBinaryText.svg");
+    qproperty-themeicon-AskNextImmediate:                           url(":/IDAG/resources/menu/AskNextImmediate.svg");
+    qproperty-themeicon-AskNextText:                                url(":/IDAG/resources/menu/AskNextText.svg");
+    qproperty-themeicon-BitwiseNegate:                              url(":/IDAG/resources/menu/BitwiseNegate.svg");
+    qproperty-themeicon-BreakpointAdd:                              url(":/IDAG/resources/menu/BreakpointAdd.svg");
+    qproperty-themeicon-BreakpointDel:                              url(":/IDAG/resources/menu/BreakpointDel.svg");
+    qproperty-themeicon-BreakpointDisable:                          url(":/IDAG/resources/menu/BreakpointDisable.svg");
+    qproperty-themeicon-BreakpointEdit:                             url(":/IDAG/resources/menu/BreakpointEdit.svg");
+    qproperty-themeicon-BreakpointEnable:                           url(":/IDAG/resources/menu/BreakpointEnable.svg");
+    qproperty-themeicon-Breakpoints:                                url(":/IDAG/resources/menu/Breakpoints.svg");
+    qproperty-themeicon-Calculate:                                  url(":/IDAG/resources/menu/Calculate.svg");
+    qproperty-themeicon-CallFlow:                                   url(":/IDAG/resources/menu/CallFlow.svg");
+    qproperty-themeicon-ChangeSign:                                 url(":/IDAG/resources/menu/ChangeSign.svg");
+    qproperty-themeicon-ChartXrefsFrom:                             url(":/IDAG/resources/menu/ChartXrefsFrom.svg");
+    qproperty-themeicon-ChartXrefsTo:                               url(":/IDAG/resources/menu/ChartXrefsTo.svg");
+    qproperty-themeicon-ChartXrefsUser:                             url(":/IDAG/resources/menu/ChartXrefsUser.svg");
+    qproperty-themeicon-CopyStruct:                                 url(":/IDAG/resources/menu/CopyStruct.svg");
+    qproperty-themeicon-CreateStructFromData:                       url(":/IDAG/resources/menu/CreateStructFromData.svg");
+    qproperty-themeicon-Debugger:                                   url(":/IDAG/resources/menu/Debugger.svg");
+    qproperty-themeicon-DeclareStructVar:                           url(":/IDAG/resources/menu/DeclareStructVar.svg");
+    qproperty-themeicon-DelConst:                                   url(":/IDAG/resources/menu/DelConst.svg");
+    qproperty-themeicon-DelEnum:                                    url(":/IDAG/resources/menu/DelEnum.svg");
+    qproperty-themeicon-DelHiddenRange:                             url(":/IDAG/resources/menu/DelHiddenRange.svg");
+    qproperty-themeicon-DelStruct:                                  url(":/IDAG/resources/menu/DelStruct.svg");
+    qproperty-themeicon-DelWatch:                                   url(":/IDAG/resources/menu/DelWatch.svg");
+    qproperty-themeicon-DumpDatabase:                               url(":/IDAG/resources/menu/DumpDatabase.svg");
+    qproperty-themeicon-DeleteDesktop:                              url(":/IDAG/resources/menu/DeleteDesktop.svg");
+    qproperty-themeicon-DumpTypes:                                  url(":/IDAG/resources/menu/DumpTypes.svg");
+    qproperty-themeicon-EditConst:                                  url(":/IDAG/resources/menu/EditConst.svg");
+    qproperty-themeicon-EditCopy:                                   url(":/IDAG/resources/menu/EditCopy.svg");
+    qproperty-themeicon-EditEnum:                                   url(":/IDAG/resources/menu/EditEnum.svg");
+    qproperty-themeicon-EditFunction:                               url(":/IDAG/resources/menu/EditFunction.svg");
+    qproperty-themeicon-EditStruct:                                 url(":/IDAG/resources/menu/EditStruct.svg");
+    qproperty-themeicon-ExecTraceAdd:                               url(":/IDAG/resources/menu/ExecTraceAdd.svg");
+    qproperty-themeicon-Execute:                                    url(":/IDAG/resources/menu/Execute.svg");
+    qproperty-themeicon-ExecuteLine:                                url(":/IDAG/resources/menu/ExecuteLine.svg");
+    qproperty-themeicon-ExpandStruct:                               url(":/IDAG/resources/menu/ExpandStruct.svg");
+    qproperty-themeicon-Function:                                   url(":/IDAG/resources/menu/Function.svg");
+    qproperty-themeicon-GraphColor:                                 url(":/IDAG/resources/menu/GraphColor.svg");
+    qproperty-themeicon-GraphFlatView:                              url(":/IDAG/resources/menu/GraphFlatView.svg");
+    qproperty-themeicon-GraphFunc:                                  url(":/IDAG/resources/menu/GraphFunc.svg");
+    qproperty-themeicon-GraphGraphView:                             url(":/IDAG/resources/menu/GraphGraphView.svg");
+    qproperty-themeicon-GraphGroup:                                 url(":/IDAG/resources/menu/GraphGroup.svg");
+    qproperty-themeicon-GraphLayout:                                url(":/IDAG/resources/menu/GraphLayout.svg");
+    qproperty-themeicon-GraphNewProximityView:                      url(":/IDAG/resources/menu/GraphNewProximityView.svg");
+    qproperty-themeicon-GraphOrthogonalLayout:                      url(":/IDAG/resources/menu/GraphOrthogonalLayout.svg");
+    qproperty-themeicon-GraphOverview:                              url(":/IDAG/resources/menu/GraphOverview.svg");
+    qproperty-themeicon-GraphPrint:                                 url(":/IDAG/resources/menu/GraphPrint.svg");
+    qproperty-themeicon-GraphProximityAddGraph:                     url(":/IDAG/resources/menu/GraphProximityAddGraph.svg");
+    qproperty-themeicon-GraphProximityAddNode:                      url(":/IDAG/resources/menu/GraphProximityAddNode.svg");
+    qproperty-themeicon-GraphProximityAddNodeByAddr:                url(":/IDAG/resources/menu/GraphProximityAddNodeByAddr.svg");
+    qproperty-themeicon-GraphProximityAddParents:                   url(":/IDAG/resources/menu/GraphProximityAddParents.svg");
+    qproperty-themeicon-GraphProximityDelChilds:                    url(":/IDAG/resources/menu/GraphProximityDelChilds.svg");
+    qproperty-themeicon-GraphProximityDelNode:                      url(":/IDAG/resources/menu/GraphProximityDelNode.svg");
+    qproperty-themeicon-GraphProximityDelParents:                   url(":/IDAG/resources/menu/GraphProximityDelParents.svg");
+    qproperty-themeicon-GraphProximityFindPath:                     url(":/IDAG/resources/menu/GraphProximityFindPath.svg");
+    qproperty-themeicon-GraphProximityView:                         url(":/IDAG/resources/menu/GraphProximityView.svg");
+    qproperty-themeicon-GraphSetupColors:                           url(":/IDAG/resources/menu/GraphSetupColors.svg");
+    qproperty-themeicon-GraphSetupOptions:                          url(":/IDAG/resources/menu/GraphSetupOptions.svg");
+    qproperty-themeicon-GraphUngroup:                               url(":/IDAG/resources/menu/GraphUngroup.svg");
+    qproperty-themeicon-GraphZoom100:                               url(":/IDAG/resources/menu/GraphZoom100.svg");
+    qproperty-themeicon-GraphZoomFit:                               url(":/IDAG/resources/menu/GraphZoomFit.svg");
+    qproperty-themeicon-Hide:                                       url(":/IDAG/resources/menu/Hide.svg");
+    qproperty-themeicon-HideAll:                                    url(":/IDAG/resources/menu/HideAll.svg");
+    qproperty-themeicon-JumpBinaryText:                             url(":/IDAG/resources/menu/JumpBinaryText.svg");
+    qproperty-themeicon-JumpEnter:                                  url(":/IDAG/resources/menu/JumpEnter.svg");
+    qproperty-themeicon-JumpEnterNew:                               url(":/IDAG/resources/menu/JumpEnterNew.svg");
+    qproperty-themeicon-JumpImmediate:                              url(":/IDAG/resources/menu/JumpImmediate.svg");
+    qproperty-themeicon-JumpNewDump:                                url(":/IDAG/resources/menu/JumpNewDump.svg");
+    qproperty-themeicon-JumpText:                                   url(":/IDAG/resources/menu/JumpText.svg");
+    qproperty-themeicon-JumpToIP:                                   url(":/IDAG/resources/menu/JumpToIP.svg");
+    qproperty-themeicon-LoadDesktop:                                url(":/IDAG/resources/menu/LoadDesktop.svg");
+    qproperty-themeicon-LoadFile:                                   url(":/IDAG/resources/menu/LoadFile.svg");
+    qproperty-themeicon-LoadNewFile:                                url(":/IDAG/resources/menu/LoadNewFile.svg");
+    qproperty-themeicon-LoadSigFile:                                url(":/IDAG/resources/menu/LoadSigFile.svg");
+    qproperty-themeicon-Locals:                                     url(":/IDAG/resources/menu/Locals.svg");
+    qproperty-themeicon-MakeArray:                                  url(":/IDAG/resources/menu/MakeArray.svg");
+    qproperty-themeicon-MakeStrlit:                                 url(":/IDAG/resources/menu/MakeStrlit.svg");
+    qproperty-themeicon-MakeCode:                                   url(":/IDAG/resources/menu/MakeCode.svg");
+    qproperty-themeicon-MakeComment:                                url(":/IDAG/resources/menu/MakeComment.svg");
+    qproperty-themeicon-MakeData:                                   url(":/IDAG/resources/menu/MakeData.svg");
+    qproperty-themeicon-MakeExtraLineA:                             url(":/IDAG/resources/menu/MakeExtraLineA.svg");
+    qproperty-themeicon-MakeExtraLineB:                             url(":/IDAG/resources/menu/MakeExtraLineB.svg");
+    qproperty-themeicon-MakeFunction:                               url(":/IDAG/resources/menu/MakeFunction.svg");
+    qproperty-themeicon-MakeName:                                   url(":/IDAG/resources/menu/MakeName.svg");
+    qproperty-themeicon-MakeRptCmt:                                 url(":/IDAG/resources/menu/MakeRptCmt.svg");
+    qproperty-themeicon-MakeUnknown:                                url(":/IDAG/resources/menu/MakeUnknown.svg");
+    qproperty-themeicon-ManualOperand:                              url(":/IDAG/resources/menu/ManualOperand.svg");
+    qproperty-themeicon-Modules:                                    url(":/IDAG/resources/menu/Modules.svg");
+    qproperty-themeicon-OpAnyOffset:                                url(":/IDAG/resources/menu/OpAnyOffset.svg");
+    qproperty-themeicon-OpBinary:                                   url(":/IDAG/resources/menu/OpBinary.svg");
+    qproperty-themeicon-OpChar:                                     url(":/IDAG/resources/menu/OpChar.svg");
+    qproperty-themeicon-OpDecimal:                                  url(":/IDAG/resources/menu/OpDecimal.svg");
+    qproperty-themeicon-OpEnum:                                     url(":/IDAG/resources/menu/OpEnum.svg");
+    qproperty-themeicon-OpFloat:                                    url(":/IDAG/resources/menu/OpFloat.svg");
+    qproperty-themeicon-OpHex:                                      url(":/IDAG/resources/menu/OpHex.svg");
+    qproperty-themeicon-OpNumber:                                   url(":/IDAG/resources/menu/OpNumber.svg");
+    qproperty-themeicon-OpOctal:                                    url(":/IDAG/resources/menu/OpOctal.svg");
+    qproperty-themeicon-OpOffset:                                   url(":/IDAG/resources/menu/OpOffset.svg");
+    qproperty-themeicon-OpOffsetCs:                                 url(":/IDAG/resources/menu/OpOffsetCs.svg");
+    qproperty-themeicon-OpSegment:                                  url(":/IDAG/resources/menu/OpSegment.svg");
+    qproperty-themeicon-OpStackVariable:                            url(":/IDAG/resources/menu/OpStackVariable.svg");
+    qproperty-themeicon-OpStructOffset:                             url(":/IDAG/resources/menu/OpStructOffset.svg");
+    qproperty-themeicon-OpUserOffset:                               url(":/IDAG/resources/menu/OpUserOffset.svg");
+    qproperty-themeicon-OpenCallers:                                url(":/IDAG/resources/menu/OpenCallers.svg");
+    qproperty-themeicon-OpenEnums:                                  url(":/IDAG/resources/menu/OpenEnums.svg");
+    qproperty-themeicon-OpenExports:                                url(":/IDAG/resources/menu/OpenExports.svg");
+    qproperty-themeicon-OpenFunctions:                              url(":/IDAG/resources/menu/OpenFunctions.svg");
+    qproperty-themeicon-OpenImports:                                url(":/IDAG/resources/menu/OpenImports.svg");
+    qproperty-themeicon-OpenLocalTypes:                             url(":/IDAG/resources/menu/OpenLocalTypes.svg");
+    qproperty-themeicon-OpenNames:                                  url(":/IDAG/resources/menu/OpenNames.svg");
+    qproperty-themeicon-OpenNotepad:                                url(":/IDAG/resources/menu/OpenNotepad.svg");
+    qproperty-themeicon-OpenProblems:                               url(":/IDAG/resources/menu/OpenProblems.svg");
+    qproperty-themeicon-OpenSegmentRegisters:                       url(":/IDAG/resources/menu/OpenSegmentRegisters.svg");
+    qproperty-themeicon-OpenSegments:                               url(":/IDAG/resources/menu/OpenSegments.svg");
+    qproperty-themeicon-OpenSelectors:                              url(":/IDAG/resources/menu/OpenSelectors.svg");
+    qproperty-themeicon-OpenSignatures:                             url(":/IDAG/resources/menu/OpenSignatures.svg");
+    qproperty-themeicon-OpenStackVariables:                         url(":/IDAG/resources/menu/OpenStackVariables.svg");
+    qproperty-themeicon-OpenStrings:                                url(":/IDAG/resources/menu/OpenStrings.svg");
+    qproperty-themeicon-OpenStructures:                             url(":/IDAG/resources/menu/OpenStructures.svg");
+    qproperty-themeicon-OpenTypeLibraries:                          url(":/IDAG/resources/menu/OpenTypeLibraries.svg");
+    qproperty-themeicon-OpenXrefs:                                  url(":/IDAG/resources/menu/OpenXrefs.svg");
+    qproperty-themeicon-Options:                                    url(":/IDAG/resources/menu/Options.svg");
+    qproperty-themeicon-FloatingSetup:                              url(":/IDAG/resources/menu/FloatingSetup.svg");
+    qproperty-themeicon-OutputWindow:                               url(":/IDAG/resources/menu/OutputWindow.svg");
+    qproperty-themeicon-PatchedBytes:                               url(":/IDAG/resources/menu/PatchedBytes.svg");
+    qproperty-themeicon-ProcessExit:                                url(":/IDAG/resources/menu/ProcessExit.svg");
+    qproperty-themeicon-ProcessPause:                               url(":/IDAG/resources/menu/ProcessPause.svg");
+    qproperty-themeicon-ProcessStart:                               url(":/IDAG/resources/menu/ProcessStart.svg");
+    qproperty-themeicon-ProduceAsm:                                 url(":/IDAG/resources/menu/ProduceAsm.svg");
+    qproperty-themeicon-ProduceHeader:                              url(":/IDAG/resources/menu/ProduceHeader.svg");
+    qproperty-themeicon-ProduceInc:                                 url(":/IDAG/resources/menu/ProduceInc.svg");
+    qproperty-themeicon-ProduceLst:                                 url(":/IDAG/resources/menu/ProduceLst.svg");
+    qproperty-themeicon-QuitIDA:                                    url(":/IDAG/resources/menu/QuitIDA.svg");
+    qproperty-themeicon-ReadWriteTraceAdd:                          url(":/IDAG/resources/menu/ReadWriteTraceAdd.svg");
+    qproperty-themeicon-RecentScripts:                              url(":/IDAG/resources/menu/RecentScripts.svg");
+    qproperty-themeicon-Return:                                     url(":/IDAG/resources/menu/Return.svg");
+    qproperty-themeicon-SaveBase:                                   url(":/IDAG/resources/menu/SaveBase.svg");
+    qproperty-themeicon-SaveBaseSnap:                               url(":/IDAG/resources/menu/SaveBaseSnap.svg");
+    qproperty-themeicon-SaveDesktop:                                url(":/IDAG/resources/menu/SaveDesktop.svg");
+    qproperty-themeicon-SearchNext:                                 url(":/IDAG/resources/menu/SearchNext.svg");
+    qproperty-themeicon-SetDirection:                               url(":/IDAG/resources/menu/SetDirection.svg");
+    qproperty-themeicon-SetType:                                    url(":/IDAG/resources/menu/SetType.svg");
+    qproperty-themeicon-ShortcutEditor:                             url(":/IDAG/resources/menu/ShortcutEditor.svg");
+    qproperty-themeicon-ShowFlags:                                  url(":/IDAG/resources/menu/ShowFlags.svg");
+    qproperty-themeicon-ShowHelp:                                   url(":/IDAG/resources/menu/ShowHelp.svg");
+    qproperty-themeicon-ShowRegisters:                              url(":/IDAG/resources/menu/ShowRegisters.svg");
+    qproperty-themeicon-ShowSnapMan:                                url(":/IDAG/resources/menu/ShowSnapMan.svg");
+    qproperty-themeicon-ShrinkStruct:                               url(":/IDAG/resources/menu/ShrinkStruct.svg");
+    qproperty-themeicon-StackTrace:                                 url(":/IDAG/resources/menu/StackTrace.svg");
+    qproperty-themeicon-StackView:                                  url(":/IDAG/resources/menu/StackView.svg");
+    qproperty-themeicon-StringC:                                    url(":/IDAG/resources/menu/StringC.svg");
+    qproperty-themeicon-StringDOS:                                  url(":/IDAG/resources/menu/StringDOS.svg");
+    qproperty-themeicon-StringDelphi:                               url(":/IDAG/resources/menu/StringDelphi.svg");
+    qproperty-themeicon-StringPascal1:                              url(":/IDAG/resources/menu/StringPascal1.svg");
+    qproperty-themeicon-StringPascal2:                              url(":/IDAG/resources/menu/StringPascal2.svg");
+    qproperty-themeicon-StringUnicode:                              url(":/IDAG/resources/menu/StringUnicode.svg");
+    qproperty-themeicon-StringUnicodePascal2:                       url(":/IDAG/resources/menu/StringUnicodePascal2.svg");
+    qproperty-themeicon-StringUnicodePascal4:                       url(":/IDAG/resources/menu/StringUnicodePascal4.svg");
+    qproperty-themeicon-SwitchToSource:                             url(":/IDAG/resources/menu/SwitchToSource.svg");
+    qproperty-themeicon-TakeSnapshot:                               url(":/IDAG/resources/menu/TakeSnapshot.svg");
+    qproperty-themeicon-ThreadRunToCursor:                          url(":/IDAG/resources/menu/ThreadRunToCursor.svg");
+    qproperty-themeicon-ThreadRunUntilReturn:                       url(":/IDAG/resources/menu/ThreadRunUntilReturn.svg");
+    qproperty-themeicon-ThreadSetCurrentIp:                         url(":/IDAG/resources/menu/ThreadSetCurrentIp.svg");
+    qproperty-themeicon-ThreadStepInto:                             url(":/IDAG/resources/menu/ThreadStepInto.svg");
+    qproperty-themeicon-ThreadStepOver:                             url(":/IDAG/resources/menu/ThreadStepOver.svg");
+    qproperty-themeicon-Threads:                                    url(":/IDAG/resources/menu/Threads.svg");
+    qproperty-themeicon-TilAddType:                                 url(":/IDAG/resources/menu/TilAddType.svg");
+    qproperty-themeicon-TilDelType:                                 url(":/IDAG/resources/menu/TilDelType.svg");
+    qproperty-themeicon-ToggleDump:                                 url(":/IDAG/resources/menu/ToggleDump.svg");
+    qproperty-themeicon-ToggleLeadingZeroes:                        url(":/IDAG/resources/menu/ToggleLeadingZeroes.svg");
+    qproperty-themeicon-ToggleSourceDebug:                          url(":/IDAG/resources/menu/ToggleSourceDebug.svg");
+    qproperty-themeicon-ToggleTraceFunctions:                       url(":/IDAG/resources/menu/ToggleTraceFunctions.svg");
+    qproperty-themeicon-ToggleTraceInstructions:                    url(":/IDAG/resources/menu/ToggleTraceInstructions.svg");
+    qproperty-themeicon-TracingWindow:                              url(":/IDAG/resources/menu/TracingWindow.svg");
+    qproperty-themeicon-UnHide:                                     url(":/IDAG/resources/menu/UnHide.svg");
+    qproperty-themeicon-UnHideAll:                                  url(":/IDAG/resources/menu/UnHideAll.svg");
+    qproperty-themeicon-UndoReturn:                                 url(":/IDAG/resources/menu/UndoReturn.svg");
+    qproperty-themeicon-WatchList:                                  url(":/IDAG/resources/menu/WatchList.svg");
+    qproperty-themeicon-WatchView:                                  url(":/IDAG/resources/menu/WatchView.svg");
+    qproperty-themeicon-WindowOpen:                                 url(":/IDAG/resources/menu/WindowOpen.svg");
+    qproperty-themeicon-WindowsList:                                url(":/IDAG/resources/menu/WindowsList.svg");
+    qproperty-themeicon-WriteTraceAdd:                              url(":/IDAG/resources/menu/WriteTraceAdd.svg");
+    qproperty-themeicon-LocalTypesSync:                             url(":/IDAG/resources/menu/LocalTypesSync.svg");
+    qproperty-themeicon-LocalTypesExportToHeader:                   url(":/IDAG/resources/menu/LocalTypesExportToHeader.svg");
+    qproperty-themeicon-DebuggerSuspendThread:                      url(":/IDAG/resources/menu/DebuggerSuspendThread.svg");
+    qproperty-themeicon-DebuggerResumeThread:                       url(":/IDAG/resources/menu/DebuggerResumeThread.svg");
+    qproperty-themeicon-ShowUndoHistory:                            url(":/IDAG/resources/menu/ShowUndoHistory.svg");
+    qproperty-themeicon-ActinsQuickFilter:                          url(":/IDAG/resources/menu/ActinsQuickFilter.svg");
+    qproperty-themeicon-DiffPrevChunk:                              url(":/IDAG/resources/menu/DiffPrevChunk.svg");
+    qproperty-themeicon-DiffCenterChunk:                            url(":/IDAG/resources/menu/DiffCenterChunk.svg");
+    qproperty-themeicon-DiffNextChunk:                              url(":/IDAG/resources/menu/DiffNextChunk.svg");
+    qproperty-themeicon-DiffPrevConflict:                           url(":/IDAG/resources/menu/DiffPrevConflict.svg");
+    qproperty-themeicon-DiffNextConflict:                           url(":/IDAG/resources/menu/DiffNextConflict.svg");
+    qproperty-themeicon-DiffApplyHandlerNoConflicts:                url(":/IDAG/resources/menu/DiffApplyHandlerNoConflicts.svg");
+    qproperty-themeicon-DiffApplyHandlerPickLocalOnConflict:        url(":/IDAG/resources/menu/DiffApplyHandlerPickLocalOnConflict.svg");
+    qproperty-themeicon-DiffProceedToTheNextStep:                   url(":/IDAG/resources/menu/DiffProceedToTheNextStep.svg");
+    qproperty-themeicon-DiffApplyHandlerPickRemoteOnConflict:       url(":/IDAG/resources/menu/DiffApplyHandlerPickRemoteOnConflict.svg");
+    qproperty-themeicon-DiffApplyPickLocal:                         url(":/IDAG/resources/menu/DiffApplyPickLocal.svg");
+    qproperty-themeicon-DiffApplyPickRemote:                        url(":/IDAG/resources/menu/DiffApplyPickRemote.svg");
+    qproperty-themeicon-DiffToggleBasePanel:                        url(":/IDAG/resources/menu/DiffToggleBasePanel.svg");
+    qproperty-themeicon-DiffToggleDetails:                          url(":/IDAG/resources/menu/DiffToggleDetails.svg");
+}
