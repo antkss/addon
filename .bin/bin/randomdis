@@ -1,0 +1,3 @@
+#!/bin/bash
+echo 0 > /proc/sys/kernel/randomize_va_space
+intel_gpu_frequency -c min=800

@@ -1,2 +1,2 @@
 #!/bin/bash
-QT_IM_MODULE=ibus rofi -show drun -theme /home/as/.config/rofi/launchers/type-1/style-5.rasi
+rofi -show drun -theme /home/as/.config/rofi/launchers/type-1/style-6.rasi

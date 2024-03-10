@@ -1,0 +1,3 @@
+#/bin/bash
+mcpelauncher-webview 
+mcpelauncher-client -dg ~/.local/share/mcpelauncher/versions/1.20.50.03

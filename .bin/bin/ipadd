@@ -1,2 +1,2 @@
 #!/bin/bash
-ip address add 192.168.1.2/22 dev wlo1
+ip address add 192.168.1.2/24 dev wlan0
