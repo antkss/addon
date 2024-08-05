@@ -6,6 +6,7 @@ fi
 autoload -U colors && colors
 export _JAVA_AWT_WM_NONREPARENTING=1
 export zshdir=~/.zsh
+source $zshdir/colorman.zsh
 export PATH=$PATH:~/.bin/bin
 autoload -Uz compinit 
 if [[ -n $zshdir/.zcompdump(#qN.mh+24) ]]; then
@@ -22,7 +23,8 @@ alias kcsc="cd /home/as/kcsc"
 #source /home/as/.local/bin/activate
 ## Colorize the ls output ##
 alias ls='ls --color=auto'
-source $zshdir/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $zshdir/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $zshdir/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $zshdir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export HISTFILE="$zshdir/.zsh_history"
 HISTSIZE=10000000
@@ -65,6 +67,17 @@ export PATH=$PATH:/usr/local/bin
 #alias clear="printf '\033[2J\033[3J\033[1;1H'"
 # Created by `pipx` on 2023-10-29 12:30:31
 export PATH="$PATH:~/.local/bin"
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 #vim mode configuration
 #
 # bindkey -v
