@@ -7,7 +7,7 @@ autoload -U colors && colors
 export _JAVA_AWT_WM_NONREPARENTING=1
 export zshdir=~/.zsh
 source $zshdir/colorman.zsh
-export PATH=$PATH:~/.bin/bin
+export PATH=$PATH:~/.bin/bin:~/.local/share/gem/ruby/3.2.0/bin
 autoload -Uz compinit 
 if [[ -n $zshdir/.zcompdump(#qN.mh+24) ]]; then
 	compinit;
@@ -29,7 +29,7 @@ source $zshdir/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export HISTFILE="$zshdir/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
-setopt appendhistory
+setopt APPEND_HISTORY
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
